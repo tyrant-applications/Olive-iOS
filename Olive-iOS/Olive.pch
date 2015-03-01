@@ -1,0 +1,37 @@
+//
+//  Olive.pch
+//  Olive-iOS
+//
+//  Created by 정의준 on 2015. 1. 28..
+//  Copyright (c) 2015년 정의준. All rights reserved.
+//
+
+#ifndef Olive_iOS_Olive_pch
+#define Olive_iOS_Olive_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "ViewSettings.h"
+#endif
+
+#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define HTML(rgb) RGB((double)(rgb >> 16 & 0xff), (double)(rgb >> 8 & 0xff), (double)(rgb & 0xff))
+
+#define Locale(key) \
+[[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
+
+
+#define OLIVE_DEFAULT_COLOR RGB(50,180,232)
+
+
+

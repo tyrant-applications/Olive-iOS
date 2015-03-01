@@ -1,25 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aRd-NR-mgh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uog-Ne-dBH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="KF3-Y1-dp1"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="5fk-1i-6PR"/>
+                                </connections>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" selectionIndicatorImage="0" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-am-JSD">
+                                <rect key="frame" x="0.0" y="487" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="contacts" id="Z0v-oM-9Gh"/>
+                                    <tabBarItem tag="1" systemItem="recents" id="gW0-AX-S0i"/>
+                                    <tabBarItem tag="2" systemItem="more" id="mUe-gw-1DL"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eoq-am-JSD" firstAttribute="trailing" secondItem="uog-Ne-dBH" secondAttribute="trailing" id="7Pu-yw-7rU"/>
+                            <constraint firstItem="eoq-am-JSD" firstAttribute="top" secondItem="uog-Ne-dBH" secondAttribute="bottom" id="AZM-Ez-Wve"/>
+                            <constraint firstItem="uog-Ne-dBH" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="EgK-G3-XCA"/>
+                            <constraint firstItem="eoq-am-JSD" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="af9-lK-suT"/>
+                            <constraint firstItem="uog-Ne-dBH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ewn-Nb-OcI"/>
+                            <constraint firstItem="eoq-am-JSD" firstAttribute="leading" secondItem="uog-Ne-dBH" secondAttribute="leading" id="mAK-SU-w8a"/>
+                            <constraint firstAttribute="trailing" secondItem="uog-Ne-dBH" secondAttribute="trailing" id="tez-db-FPx"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BzX-Gm-uXh"/>
+                    <connections>
+                        <outlet property="_tabBar" destination="eoq-am-JSD" id="yfz-n5-oKU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-91" y="92"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9ZV-8r-K3R">
+            <objects>
+                <navigationController id="aRd-NR-mgh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="jT2-l4-GSA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.19607843137254902" green="0.70588235294117641" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="zyz-7I-FFc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bam-v5-d4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-796" y="92"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="0" width="16" height="16"/>
+    </resources>
 </document>
