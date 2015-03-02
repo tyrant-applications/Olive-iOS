@@ -24,14 +24,20 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="5fk-1i-6PR"/>
                                 </connections>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" selectionIndicatorImage="0" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-am-JSD">
+                            <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" selectionIndicatorImage="0" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-am-JSD">
                                 <rect key="frame" x="0.0" y="487" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem systemItem="contacts" id="Z0v-oM-9Gh"/>
-                                    <tabBarItem tag="1" systemItem="recents" id="gW0-AX-S0i"/>
-                                    <tabBarItem tag="2" systemItem="more" id="mUe-gw-1DL"/>
+                                    <tabBarItem tag="1" title="Add Friends" id="gW0-AX-S0i"/>
+                                    <tabBarItem tag="2" title="Setting" id="mUe-gw-1DL"/>
                                 </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="yRx-xX-KwW"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -61,7 +67,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="jT2-l4-GSA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.19607843137254902" green="0.70588235294117641" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

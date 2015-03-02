@@ -20,6 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    float versionNumber = floor(NSFoundationVersionNumber);
+    if (versionNumber > NSFoundationVersionNumber_iOS_6_1)
+    {
+        [[UITabBar appearance] setTintColor:OLIVE_DEFAULT_COLOR];
+    }
+    else
+    {
+        [[UITabBar appearance] setSelectedImageTintColor:OLIVE_DEFAULT_COLOR];
+    }
+
     // Override point for customization after application launch.
     return YES;
 }

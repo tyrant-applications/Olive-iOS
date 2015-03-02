@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FindFriendsView.h"
 
-@interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>{
+typedef enum {
+    FRIENDS_LIST = 0,
+    ADD_FRIENDS = 1,
+    SETTINGS = 2
+} TABBAR_TYPE;
+
+@interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDataSource, UITabBarDelegate>{
+    TABBAR_TYPE current_type;
     IBOutlet UITabBar *_tabBar;
+    
+    FindFriendsView *_friendsView;
 }
 
 @property (nonatomic, retain) IBOutlet UITabBar *_tabBar;

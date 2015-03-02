@@ -19,18 +19,57 @@
     
     self.title = @"";
     //self.title = @"Olive";
+    current_type = FRIENDS_LIST;
     [_tabBar setSelectedItem:[_tabBar.items objectAtIndex:0]];
     // Do any additional setup after loading the view.
-    
+    [self setTitleView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //self.navigationController.navigationBarHidden = YES;
-
+    
+    _friendsView = [[FindFriendsView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - _tabBar.frame.size.height)];
+    _friendsView.hidden= YES;
+    [self.view addSubview:_friendsView];
 }
 
+- (void)setTitleView{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44.0f)];
+    label.font = [UIFont boldSystemFontOfSize:18.0f];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = OLIVE_DEFAULT_COLOR;
+    if(_tabBar.selectedItem.tag == FRIENDS_LIST){
+        label.text = @"Olive";
+    }else if(_tabBar.selectedItem.tag == ADD_FRIENDS){
+        //ADD friends view
+        label.text = @"Add Friends";
+    }else if(_tabBar.selectedItem.tag == SETTINGS){
+        label.text = @"Settings";
+    }
+    
+    self.navigationItem.titleView = label;
+}
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    if(current_type == item.tag){
+        return;
+    }
+    current_type = item.tag;
+    _friendsView.hidden = YES;
+    
+    if(item.tag == FRIENDS_LIST){
+        //FriendsList
+
+    }else if(item.tag == ADD_FRIENDS){
+        //ADD friends view
+        _friendsView.hidden = NO;
+    }else if(item.tag == SETTINGS){
+        
+    }
+    
+    [self setTitleView];
+}
 
 
 #pragma mark -
@@ -43,7 +82,7 @@
     return 10;
 }
 
-#define CELL_HEIGHT 80.0f
+#define CELL_HEIGHT 60.0f
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return CELL_HEIGHT;
 }
