@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindFriendsView : UIView <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
-
+@interface FindFriendsView : UIView <UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>{
+    NSMutableArray *items;
+    NSMutableArray *selectedItems;
+    
+    UITableView *_tableView;
+    
+    
+    
+    
+}
+@property (nonatomic, retain) NSMutableArray *items;
+@property (nonatomic, retain) NSMutableArray *selectedItems;
 @end

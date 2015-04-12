@@ -20,6 +20,9 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+- (void)goToMain:(UINavigationController *)nav;
+- (void)goToSignin;
 
+- (void)flushDatabase;
 @end
 

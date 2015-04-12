@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface OliveDetailView : UIView
+
+@protocol OliveDetailViewDelegate <NSObject>
+
+@required
+-(void)showImageFullScreen:(UIImageView *)imageView;
+
+@end
+
+@interface OliveDetailView : UIView{
+    UILabel *textDetail;
+    UIImageView *imageDetail;
+    MKMapView *mapDetail;
+    MKPointAnnotation *point;
+    id<OliveDetailViewDelegate> delegate;
+}
+
+@property (nonatomic, assign) id<OliveDetailViewDelegate> delegate;
+
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aRd-NR-mgh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YZB-Fg-yd5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="main-view-controller" storyboardIdentifier="main-view-controller" id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -24,13 +24,13 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="5fk-1i-6PR"/>
                                 </connections>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" selectionIndicatorImage="0" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-am-JSD">
+                            <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-am-JSD">
                                 <rect key="frame" x="0.0" y="487" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="contacts" id="Z0v-oM-9Gh"/>
-                                    <tabBarItem tag="1" title="Add Friends" id="gW0-AX-S0i"/>
-                                    <tabBarItem tag="2" title="Setting" id="mUe-gw-1DL"/>
+                                    <tabBarItem title="Friends" image="footer_friends.png" id="Z0v-oM-9Gh"/>
+                                    <tabBarItem tag="1" title="Add Friends" image="footer_add.png" id="gW0-AX-S0i"/>
+                                    <tabBarItem tag="2" title="Setting" image="footer_setting.png" id="mUe-gw-1DL"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,16 +54,18 @@
                     <navigationItem key="navigationItem" id="BzX-Gm-uXh"/>
                     <connections>
                         <outlet property="_tabBar" destination="eoq-am-JSD" id="yfz-n5-oKU"/>
+                        <outlet property="_tableView" destination="uog-Ne-dBH" id="NhO-jq-4uR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="92"/>
+            <point key="canvasLocation" x="-296" y="632"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9ZV-8r-K3R">
             <objects>
-                <navigationController id="aRd-NR-mgh" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="main-nav-controller" storyboardIdentifier="main-nav-controller" id="aRd-NR-mgh" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="jT2-l4-GSA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -73,15 +75,36 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="zyz-7I-FFc"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="gZb-XI-qSL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bam-v5-d4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-796" y="92"/>
+            <point key="canvasLocation" x="-994" y="632"/>
+        </scene>
+        <!--Signin View Controller-->
+        <scene sceneID="nOm-UE-FRP">
+            <objects>
+                <viewController restorationIdentifier="signin-controller" storyboardIdentifier="signin-controller" id="YZB-Fg-yd5" customClass="SigninViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SrK-0k-lxu"/>
+                        <viewControllerLayoutGuide type="bottom" id="HhS-mx-KEt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nfG-IU-IqA">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qDq-sP-WTz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQL-kH-Tju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-994" y="-32"/>
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="16" height="16"/>
+        <image name="footer_add.png" width="22" height="22"/>
+        <image name="footer_friends.png" width="22" height="22"/>
+        <image name="footer_setting.png" width="22" height="22"/>
     </resources>
 </document>

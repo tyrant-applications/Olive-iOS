@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OliveKeyboardView : UIView
+@interface OliveButton : UIButton<UIAlertViewDelegate>{
+    KeyboardButton *myBtnInfo;
+}
+@property (nonatomic, retain) KeyboardButton *myBtnInfo;
+@end
 
+@interface OliveKeyboardView : UIView{
+
+}
+
+-(id)initWithFrame:(CGRect)frame buttons:(NSArray *)buttons;
 @end

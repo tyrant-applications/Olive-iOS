@@ -17,3 +17,13 @@
 @property (nonatomic, retain) NSString *img;
 
 @end
+
+@interface FindFriendsTableViewCell : UITableViewCell{
+    NSString *img;
+    
+    UIImageView *thumb;
+}
+
+@property (nonatomic, retain) NSString *img;
+
+@end

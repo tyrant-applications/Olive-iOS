@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FindFriendsView.h"
+#import "SettingView.h"
 
 typedef enum {
     FRIENDS_LIST = 0,
@@ -18,9 +19,19 @@ typedef enum {
 @interface MainViewController : UIViewController <UITableViewDataSource, UITableViewDataSource, UITabBarDelegate>{
     TABBAR_TYPE current_type;
     IBOutlet UITabBar *_tabBar;
+    IBOutlet UITableView *_tableView;
     
     FindFriendsView *_friendsView;
+    SettingView *_settingView;
+    
+    
+    
+    NSMutableArray *friends;
+    NSMutableArray *rooms;
 }
 
 @property (nonatomic, retain) IBOutlet UITabBar *_tabBar;
+@property (nonatomic, retain) IBOutlet UITableView *_tableView;
+@property (nonatomic, retain) NSMutableArray *friends;
+@property (nonatomic, retain) NSMutableArray *rooms;
 @end

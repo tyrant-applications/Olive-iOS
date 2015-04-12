@@ -10,6 +10,7 @@
 
 
 #import "AFNetworking.h"
+#import "CoreDataManager.h"
 
 @interface AppDelegate ()
 
@@ -17,8 +18,51 @@
 
 @implementation AppDelegate
 
+- (void)goToMain:(UINavigationController *)nav{
+
+    [UIView transitionWithView:self.window
+                      duration:0.25
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                    
+                    }
+                    completion:nil];
+    
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+}
+
+- (void)goToSignin{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *viewCont = (UIViewController *)[sb instantiateViewControllerWithIdentifier:@"signin-controller"];
+
+    [UIView transitionWithView:self.window
+                      duration:0.25
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        
+                    }
+                    completion:nil];
+    
+    self.window.rootViewController = viewCont;
+    [self.window makeKeyAndVisible];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    [[OLNetworkManager manager] removeToken];
+    
+    if (DEBUG_MODE) {
+        NSLog(@"THIS IS DEBUG MODE!");
+    }
+    
+    [[CoreDataManager manager] prepare];
+    
+    if([[CoreDataManager manager] getAllKeyboardButtons] == nil || [[[CoreDataManager manager] getAllKeyboardButtons] count] == 0){
+        [[CoreDataManager manager] installPrekeyboardButtons];
+    }
+    
+    [[CoreDataManager manager] getAllKeyboardButtons];
     
     float versionNumber = floor(NSFoundationVersionNumber);
     if (versionNumber > NSFoundationVersionNumber_iOS_6_1)
@@ -27,7 +71,9 @@
     }
     else
     {
-        [[UITabBar appearance] setSelectedImageTintColor:OLIVE_DEFAULT_COLOR];
+        if([[UITabBar appearance] respondsToSelector:@selector(setSelectedImageTintColor:)]){
+            [[UITabBar appearance] performSelector:@selector(setSelectedImageTintColor:) withObject:OLIVE_DEFAULT_COLOR];
+        }
     }
 
     // Override point for customization after application launch.
@@ -136,6 +182,22 @@
             abort();
         }
     }
+}
+
+
+- (void)flushDatabase{
+    NSArray *stores = [_persistentStoreCoordinator persistentStores];
+    for(NSPersistentStore *store in stores) {
+        [_persistentStoreCoordinator removePersistentStore:store error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+    }
+    _managedObjectModel    = nil;
+    _managedObjectContext  = nil;
+    _persistentStoreCoordinator = nil;
+    
+    
+    CoreDataManager *manager = [CoreDataManager manager];
+    manager.managedObjectContext = [self managedObjectContext];
 }
 
 @end

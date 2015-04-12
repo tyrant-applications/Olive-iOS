@@ -10,7 +10,11 @@
 
 @interface ViewSettings : NSObject
 
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 +(CGFloat)getOliveKeyboardHeight;
 +(CGFloat)getOliveTableViewHeight;
+
++(UIColor *)getMyTextColor;
++(UIColor *)getYourTextColor;
 @end

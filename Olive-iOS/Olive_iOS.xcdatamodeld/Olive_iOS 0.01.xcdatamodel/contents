@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Friends" representedClassName="Friends" syncable="YES">
+        <attribute name="attached_file" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attached_file1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attached_file2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contents1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contents2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msg_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msg_type1" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msg_type2" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reg_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reg_date1" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reg_date2" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="room_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="room_id1" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="room_id2" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="update_date" optional="YES" attributeType="Date" defaultDateTimeInterval="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="KeyboardButtons" syncable="YES">
+        <attribute name="col" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="page" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="row" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Messages" representedClassName="Messages" syncable="YES">
+        <attribute name="attached_file" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message_id" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msg_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="reg_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="room_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Rooms" representedClassName="Rooms" syncable="YES">
+        <attribute name="attendants_list" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="creator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_msg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="room_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Friends" positionX="-63" positionY="-18" width="128" height="390"/>
+        <element name="Messages" positionX="9" positionY="99" width="128" height="150"/>
+        <element name="Rooms" positionX="79" positionY="-18" width="128" height="118"/>
+        <element name="KeyboardButtons" positionX="9" positionY="135" width="128" height="120"/>
+    </elements>
+</model>

@@ -7,6 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@protocol OliveKeyboardContainerViewDelegate <NSObject>
+
+@required
+-(void)openCamera;
+-(void)openPhotoAlbum;
+-(void)openMapViewController;
+@optional
+
+@end
+
 @interface OliveKeyboardScrollView: UIScrollView{
 
 }
@@ -14,7 +25,10 @@
 
 @interface OliveKeyboardContainerView : UIView{
     UIScrollView *_scrollView;
+    id<OliveKeyboardContainerViewDelegate> delegate;
 }
 
 @property (nonatomic, retain) UIScrollView *_scrollView;
+@property (nonatomic, assign) id<OliveKeyboardContainerViewDelegate> delegate;
+
 @end

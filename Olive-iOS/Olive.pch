@@ -20,6 +20,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "ViewSettings.h"
+#import "OLNetworkManager.h"
+#import "CoreDataManager.h"
+#import "CommonUtils.h"
 #endif
 
 #define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
@@ -30,8 +33,24 @@
 [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
 
 
+#define DEBUG_MODE NO
+
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+#define OLIVE_TAPPED @"OLIVE_TAPPED"
+#define OLIVE_BUTTON_TAPPED @"OLIVE_BUTTON_TAPPED"
+#define OLIVE_BUTTON_TAPPED_LOCATION @"OLIVE_BUTTON_TAPPED_LOCATION"
 
 #define OLIVE_DEFAULT_COLOR RGB(50,180,232)
+#define OLIVE_DEFAULT_COLOR_ALPHA RGBA(50,180,232,0.1)
 
+#define LOCAL_DOMAIN @"http://localhost:8000"
+
+#define SERVER_DOMAIN @"http://ec2-54-64-210-165.ap-northeast-1.compute.amazonaws.com:8080"
+#define API_URL(path) DEBUG_MODE? [NSString stringWithFormat:@"%@/%@",LOCAL_DOMAIN,path] : [NSString stringWithFormat:@"%@/%@",SERVER_DOMAIN,path]
+#define MEDIA_URL(path) DEBUG_MODE? [NSString stringWithFormat:@"%@%@",LOCAL_DOMAIN,path] : [NSString stringWithFormat:@"%@%@",SERVER_DOMAIN,path]
+
+#define THUMB_URL(path) [NSString stringWithFormat:@"%@.thumb.png",MEDIA_URL(path)]
+#define THUMB_URL_SIZE(path,size) [NSString stringWithFormat:@"%@_%@.png",MEDIA_URL(path),size]
 
 

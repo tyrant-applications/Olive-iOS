@@ -10,8 +10,9 @@
 #import "OliveTableView.h"
 #import "OliveKeyboardContainerView.h"
 
-@interface OliveViewController : UIViewController{
+@interface OliveViewController : UIViewController <UIAlertViewDelegate, UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OliveKeyboardContainerViewDelegate,OliveDetailViewDelegate>{
     NSString *_userID;
+    NSNumber *_roomID;
     
     OliveTableView *_tableView;
     OliveDetailView *_detailView;
@@ -19,7 +20,8 @@
 }
 
 @property (nonatomic, retain) NSString *_userID;
+@property (nonatomic, retain) NSNumber *_roomID;
 
--(id)initWithUser:(NSString *)userid;
+-(id)initWithUser:(NSString *)userid roomID:(NSNumber *)roomid;
 
 @end

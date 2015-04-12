@@ -9,14 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "OliveDetailView.h"
 
-@interface OliveTableViewCell : UIView{
-
+@interface OliveTableViewCell : UIControl{
+    OLIVE_TYPE myType;
+    UILabel *myText;
+    UIImageView *myImage;
+    NSString *myImageURLString;
+    
+    UIImageView *myLoc;
 }
--(id)initWithIndex:(NSInteger)index;
+@property (nonatomic, retain) UILabel *myText;
+@property (nonatomic, retain) UIImageView *myImage;
+@property (nonatomic, retain) UIImageView *myLoc;
+@property (nonatomic, copy) NSString *myImageURLString;
+-(id)initWithIndex:(NSInteger)index myText:(BOOL)myText;
 @end
 
 @interface OliveTableView : UIScrollView{
-
+    NSMutableArray *_messages;
 }
 
+@property (nonatomic, retain) NSMutableArray *_messages;
+-(void)setOlives:(NSArray *)messages;
+-(void)addOlive:(Messages *)message;
 @end
